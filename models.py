@@ -2,7 +2,7 @@ from pydantic import BaseModel
 import datetime
 from typing import Optional
 
-class Book(BaseModel):
+class BookCreate(BaseModel):
     title: str
     author: str
     description: Optional[str] = None
@@ -10,8 +10,8 @@ class Book(BaseModel):
     isbn: str
     pages: int
     country: Optional[str] = None
+    count: int = 1
 
-class StoreBook(Book):
+class BookItem(BookCreate):
     id: int
     recieved_date: datetime.date
-    count: int
