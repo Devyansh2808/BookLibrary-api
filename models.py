@@ -10,8 +10,9 @@ class BookCreate(BaseModel):
     isbn: str
     pages: int
     country: Optional[str] = None
-    count: int = 1
 
 class BookItem(BookCreate):
     id: int
     recieved_date: datetime.date
+    class Config:
+        from_attributes = True
